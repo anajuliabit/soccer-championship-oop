@@ -20,9 +20,28 @@ public class Team {
         return "Wins: " + this.wins + ", Draws: " + this.draws + ", Defeats: " + this.defeats;
     }
 
-    public List<Player> addPlayer(Player player) {
+    public void addPlayer(Player player) {
         this.players.add(player);
-        return players;
+    }
+
+    public String printPlayers() {
+        String result = "";
+        for (Player player : players ) {
+            result += player.printPlayer() + "\n";
+        }
+        return result;
+    }
+
+    private void sumWin() {
+        this.wins++;
+    }
+
+    private void sumDefeat() {
+        this.defeats++;
+    }
+
+    private void sumDraws() {
+        this.draws++;
     }
 
     public String getName() {

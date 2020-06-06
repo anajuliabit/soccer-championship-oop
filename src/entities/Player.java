@@ -5,7 +5,21 @@ public class Player {
     protected Integer age;
     protected Integer skill;
     protected Integer number;
+    protected Integer gols;
 
+    public Player(String name, Integer age, Integer skill) {
+        this.name = name;
+        this.age = age;
+        this.skill = skill;
+    }
+
+    public void sumGol() {
+        this.gols++;
+    }
+
+    public String printPlayer() {
+        return "Name: " + this.getName() + ", age: " + this.getAge() + ", skill: " + this.getSkill() + ", number" + this.getNumber() + ", gols: " + this.gols;
+    }
 
     public String getName() {
         return name;
