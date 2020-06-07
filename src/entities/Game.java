@@ -9,10 +9,12 @@ public class Game {
     private Integer homeScoreboard;
     private Integer visitorScoreboard;
     private Team winner;
+    private Stadium stadium;
 
-    public Game(Team homeTeam, Team visitorTeam, LocalDate date) {
+    public Game(Team homeTeam, Team visitorTeam, LocalDate date, Stadium stadium) {
         this.homeTeam = homeTeam;
         this.visitorTeam = visitorTeam;
+        this.stadium = stadium;
         this.date = date;
         this.homeScoreboard = 0;
         this.visitorScoreboard = 0;

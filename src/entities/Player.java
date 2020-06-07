@@ -11,6 +11,7 @@ public class Player {
         this.name = name;
         this.age = age;
         this.skill = skill;
+        this.gols = 0;
     }
 
     public void sumGol() {
@@ -18,7 +19,7 @@ public class Player {
     }
 
     public String printPlayer() {
-        return "Name: " + this.getName() + ", age: " + this.getAge() + ", skill: " + this.getSkill() + ", number" + this.getNumber() + ", gols: " + this.gols;
+        return "Nome: " + this.getName() + ", Idade: " + this.getAge() + ", Habilidade: " + this.getSkill();
     }
 
     public String getName() {

@@ -6,9 +6,9 @@ import entities.Team;
 public class GenerateTeams {
 
      public static Team createHomeTeam() {
-        DefenderPlayer romario = new DefenderPlayer("Romário", 30, 3, 5, 2);
-        ForwardPlayer pele = new ForwardPlayer("Pelé", 40, 5, 5, 5);
-        GoalkeeperPlayer davi = new GoalkeeperPlayer("Davi", 35, 4, 3, (float) 1.78);
+        DefenderPlayer romario = new DefenderPlayer("Romário", 30, 80, 50, 60);
+        ForwardPlayer pele = new ForwardPlayer("Pelé", 40, 50, 62, 88);
+        GoalkeeperPlayer davi = new GoalkeeperPlayer("Davi", 35, 40, 35, (float) 1.78);
 
         Team homeTeam = new Team("Corinthians");
         homeTeam.addDefenderPlayer(romario);
@@ -18,9 +18,9 @@ public class GenerateTeams {
     }
 
      public static Team createVisitorTeam() {
-        DefenderPlayer joazinho = new DefenderPlayer("Joãozinho", 68, 3, 2, 4);
-        ForwardPlayer marta = new ForwardPlayer("Marta", 38, 5, 5, 5);
-        GoalkeeperPlayer alisson = new GoalkeeperPlayer("Alisson", 32, 3, 5, (float) 1.54);
+        DefenderPlayer joazinho = new DefenderPlayer("Joãozinho", 68, 90, 40, 60);
+        ForwardPlayer marta = new ForwardPlayer("Marta", 38, 67, 87, 35);
+        GoalkeeperPlayer alisson = new GoalkeeperPlayer("Alisson", 32, 45, 65, (float) 1.74);
 
         Team visitorTeam = new Team("Palmeiras");
         visitorTeam.addDefenderPlayer(joazinho);
