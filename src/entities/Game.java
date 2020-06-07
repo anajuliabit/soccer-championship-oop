@@ -20,20 +20,22 @@ public class Game {
 
     public void start() {
         // Aqui estamos gerando a quantidade de chutes a gol de ambos os times aleatoriamente,
-        // porém escolhi um valor mínimo de 10 chutes e um valor máximo de 90 chutes visto que uma partida dura 90 minutos.
-        final Integer totalGoalKicksHomeTeam = getRandomGoalKicks(10, 90);
-        final Integer totalGoalKicksVisitorTeam = getRandomGoalKicks(10, 90);
+        // porém defini que terá entre 5 a 15 chutes ao gol para ficar mais realista
+        final Integer totalGoalKicksHomeTeam = getRandomGoalKicks(5, 15);
+        final Integer totalGoalKicksVisitorTeam = getRandomGoalKicks(5, 15);
 
         // Abaixo, a cada chute a gol é feito a seguinte lógica: Se a soma das habilidades de ataque do time atacante vezes um número randomico
         // for maior que a soma das habilidades de defesa do time defensor vezes um número randomico o gol foi marcado.
         for (int i = 0; i < totalGoalKicksHomeTeam; i++) {
             if(attemptedGoalKick(homeTeam, visitorTeam)) {
                 homeScoreboard++;
+                System.out.println(homeTeam.getName() + " marcou um gol!");
             };
         }
         for (int i = 0; i < totalGoalKicksVisitorTeam; i++) {
             if(attemptedGoalKick(visitorTeam, homeTeam)) {
                 visitorScoreboard++;
+                System.out.println(visitorTeam.getName() + " marcou um gol!");
             };
         }
 
@@ -49,6 +51,9 @@ public class Game {
             visitorTeam.sumDraws();
             homeTeam.sumDraws();
         }
+
+        System.out.println("=============================\nTOTAL CHUTES AO GOL\n" + homeTeam.getName() + ": " + totalGoalKicksHomeTeam
+                            + "\n" + visitorTeam.getName() + ": " + totalGoalKicksVisitorTeam);
     }
 
 
@@ -61,7 +66,7 @@ public class Game {
     }
 
     public String getScoreboard() {
-        return "=============================\n" + this.homeTeam.getName() + ": " + this.homeScoreboard
+        return "=============================\nPLACAR\n" + this.homeTeam.getName() + ": " + this.homeScoreboard
                 + "\n" +this.visitorTeam.getName() + ": " + this.visitorScoreboard + "\n=============================";
     }
 
@@ -110,7 +115,7 @@ public class Game {
     }
 
     private Integer getRandomGoalKicks(Integer min, Integer max) {
-        return ((int) Math.random() * (max - min) + min);
+        return min + (int)(Math.random() * ((max - min) + 1));
     }
 
     private Boolean attemptedGoalKick(Team attacker, Team defender) {

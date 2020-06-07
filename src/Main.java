@@ -16,6 +16,7 @@ public class Main {
 
     public static void startGame(Team homeTeam, Team visitorTeam) {
         Game game = new Game(homeTeam, visitorTeam, LocalDate.now());
+        System.out.println("A partida vai começar!\n=============================");
         game.start();
         System.out.println(game.getScoreboard());
         if(Objects.nonNull(game.getWinner())) {
