@@ -6,8 +6,8 @@ public class DefenderPlayer extends Player {
 
     public DefenderPlayer(String name, Integer age, Integer skill, Integer coverage, Integer disarm) {
         super(name, age, skill);
-       this.coverage = coverage;
-       this.disarm = disarm;
+        this.coverage = coverage;
+        this.disarm = disarm;
     }
 
     @Override

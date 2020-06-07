@@ -14,4 +14,20 @@ public class ForwardPlayer extends Player {
     public Integer getSkill() {
         return ((skill * 5) + (speed * 2) + (technique * 3)) / 10;
     }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Integer getTechnique() {
+        return technique;
+    }
+
+    public void setTechnique(Integer technique) {
+        this.technique = technique;
+    }
 }

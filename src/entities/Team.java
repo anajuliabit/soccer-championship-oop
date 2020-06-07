@@ -1,27 +1,46 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-    protected String name;
-    protected List<Player> players;
-    protected Integer wins;
-    protected Integer defeats;
-    protected Integer draws;
+    private String name;
+    private List<Player> players;
+    private List<DefenderPlayer> defenderPlayers;
+    private List<GoalkeeperPlayer> goalkeeperPlayers;
+    private List<ForwardPlayer> forwardPlayers;
+    private Integer wins;
+    private Integer defeats;
+    private Integer losses;
 
     public Team(String name) {
         this.name = name;
+        this.players = new ArrayList<>();
+        this.defenderPlayers = new ArrayList<>();
+        this.goalkeeperPlayers = new ArrayList<>();
+        this.forwardPlayers = new ArrayList<>();
         this.wins = 0;
         this.defeats = 0;
-        this.draws = 0;
+        this.losses = 0;
     }
 
     public String getResults() {
-        return "Wins: " + this.wins + ", Draws: " + this.draws + ", Defeats: " + this.defeats;
+        return "Wins: " + this.wins + ", Draws: " + this.losses + ", Defeats: " + this.defeats;
     }
 
-    public void addPlayer(Player player) {
-        this.players.add(player);
+    public void addDefenderPlayer(DefenderPlayer defenderPlayer) {
+        this.defenderPlayers.add(defenderPlayer);
+        this.addPlayer(defenderPlayer);
+    }
+
+    public void addGoalkeeperPlayer(GoalkeeperPlayer goalkeeperPlayer) {
+        this.goalkeeperPlayers.add(goalkeeperPlayer);
+        this.addPlayer(goalkeeperPlayer);
+    }
+
+    public void addForwardPlayer(ForwardPlayer forwardPlayer) {
+        this.forwardPlayers.add(forwardPlayer);
+        this.addPlayer(forwardPlayer);
     }
 
     public String printPlayers() {
@@ -32,16 +51,32 @@ public class Team {
         return result;
     }
 
-    private void sumWin() {
+    public Integer getTotalDefenderSkills() {
+        return defenderPlayers.stream().map(player -> player.getSkill()).reduce(0, Integer::sum);
+    }
+
+    public Integer getTotalGoalkeeperSkills() {
+        return goalkeeperPlayers.stream().map(player -> player.getSkill()).reduce(0, Integer::sum);
+    }
+
+    public Integer getTotalForwardSkills() {
+        return forwardPlayers.stream().map(player -> player.getSkill()).reduce(0, Integer::sum);
+    }
+
+    public Integer getTotalSkillsTeam() {
+        return players.stream().map(player -> player.getSkill()).reduce(0, Integer::sum);
+    }
+
+    public void sumWin() {
         this.wins++;
     }
 
-    private void sumDefeat() {
+    public void sumLosses() {
         this.defeats++;
     }
 
-    private void sumDraws() {
-        this.draws++;
+    public void sumDraws() {
+        this.losses++;
     }
 
     public String getName() {
@@ -76,11 +111,39 @@ public class Team {
         this.defeats = defeats;
     }
 
-    public Integer getDraws() {
-        return draws;
+    public Integer getLosses() {
+        return losses;
     }
 
-    public void setDraws(Integer draws) {
-        this.draws = draws;
+    public void setLosses(Integer losses) {
+        this.losses = losses;
+    }
+
+    public List<DefenderPlayer> getDefenderPlayers() {
+        return defenderPlayers;
+    }
+
+    public void setDefenderPlayers(List<DefenderPlayer> defenderPlayers) {
+        this.defenderPlayers = defenderPlayers;
+    }
+
+    public List<GoalkeeperPlayer> getGoalkeeperPlayers() {
+        return goalkeeperPlayers;
+    }
+
+    public void setGoalkeeperPlayers(List<GoalkeeperPlayer> goalkeeperPlayers) {
+        this.goalkeeperPlayers = goalkeeperPlayers;
+    }
+
+    public List<ForwardPlayer> getForwardPlayers() {
+        return forwardPlayers;
+    }
+
+    public void setForwardPlayers(List<ForwardPlayer> forwardPlayers) {
+        this.forwardPlayers = forwardPlayers;
+    }
+
+    private void addPlayer(Player player) {
+        this.players.add(player);
     }
 }
