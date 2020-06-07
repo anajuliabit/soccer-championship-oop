@@ -24,7 +24,6 @@ public class Game {
         final Integer totalGoalKicksHomeTeam = getRandomGoalKicks(10, 90);
         final Integer totalGoalKicksVisitorTeam = getRandomGoalKicks(10, 90);
 
-
         // Abaixo, a cada chute a gol é feito a seguinte lógica: Se a soma das habilidades de ataque do time atacante vezes um número randomico
         // for maior que a soma das habilidades de defesa do time defensor vezes um número randomico o gol foi marcado.
         for (int i = 0; i < totalGoalKicksHomeTeam; i++) {
